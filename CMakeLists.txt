@@ -12,6 +12,10 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
+# Geographiclib installs FindGeographicLib.cmake to this non-standard location
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "/usr/share/cmake/geographiclib/")
+find_package(GeographicLib REQUIRED)
+
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
@@ -24,6 +28,12 @@ include_directories(
  add_executable(ublox_2_odometry 
      src/ublox_2_odometry.cpp
      src/main.cpp )
+
+
+target_link_libraries(
+  ublox_2_odometry
+  ${GeographicLib_LIBRARIES}
+)
 
 ament_target_dependencies(ublox_2_odometry rclcpp 
   nav_msgs

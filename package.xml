@@ -42,6 +42,7 @@
   <exec_depend>tf2_geometry_msgs</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
 
+  <depend>geographiclib</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <!-- The export tag contains other, unspecified, tags -->
